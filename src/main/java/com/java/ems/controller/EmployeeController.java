@@ -11,11 +11,16 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@AllArgsConstructor
+//@AllArgsConstructor
 @RequestMapping("/api/employees")
 public class EmployeeController {
 
     private EmployeeService employeeService;
+
+    public EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
+    }
+
     // build add employee method
     @PostMapping
     public ResponseEntity<EmployeeDto> createEmployee(@RequestBody EmployeeDto employeeDto){
